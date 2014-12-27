@@ -1,0 +1,22 @@
+{
+  "name": "transducers",
+  "version": "0.1.0",
+  "description": "functions of the highest order",
+  "keywords": ["transduce"],
+  "dependencies": {
+    "curryable": "0"
+  },
+  "devDependencies": {
+    "assert": "jkroso/assert",
+    "serve": "jkroso/serve",
+    "hydro-html": "*",
+    "hydro-bdd": "*",
+    "hydro-dot": "*",
+    "hydro": "*",
+    "jsmd": "*"
+  },
+  "repository": "git://github.com/jkroso/transducers.js.git",
+  "author": "Jake Rosoman",
+  "files": ["index.js"],
+  "license": "MIT"
+}
