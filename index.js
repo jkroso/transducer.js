@@ -1,41 +1,34 @@
-var concat = Function.call.bind([].concat)
-var curry = require('curryable')
+const flatten = require('arr-flatten')
+const curry = require('curryable')
 
-function compose(){
-  var fns = reduce(arguments, concat, [])
-  return function(combine){
-    return foldr(fns, invoke, combine)
-  }
-}
+const invoke = (fn, value) => fn(value)
 
-function invoke(fn, argument){ return fn(argument) }
-
-function foldr(array, fn, init){
+const foldr = (array, fn, init) => {
   var i = array.length
   while (i--) init = fn(array[i], init)
   return init
 }
 
-function reduce(array, fn, init){
+const foldl = (array, fn, init) => {
   for (var i = 0, len = array.length; i < len; i++) {
     init = fn(init, array[i])
   }
   return init
 }
 
-var map = curry(function map(fn, combine, result, value){
+export const compose = (...args) => {
+  const fns = flatten(args)
+  return combine => foldr(fns, invoke, combine)
+}
+
+export const map = curry(function map(fn, combine, result, value){
   return combine(result, fn(value))
 })
 
-var filter = curry(function filter(fn, combine, result, value){
+export const filter = curry(function filter(fn, combine, result, value){
   return fn(value) ? combine(result, value) : result
 })
 
-var mapcat = curry(function mapcat(fn, combine, result, value){
-  return reduce(fn(value), combine, result)
+export const mapcat = curry(function mapcat(fn, combine, result, value){
+  return foldl(fn(value), combine, result)
 })
-
-exports.compose = compose
-exports.filter = filter
-exports.mapcat = mapcat
-exports.map = map

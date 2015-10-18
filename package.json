@@ -4,18 +4,18 @@
   "description": "functions of the highest order",
   "keywords": ["transduce"],
   "dependencies": {
+    "arr-flatten": "1",
     "curryable": "0"
   },
   "devDependencies": {
-    "assert": "jkroso/assert",
     "serve": "jkroso/serve",
     "hydro-html": "*",
     "hydro-bdd": "*",
     "hydro-dot": "*",
-    "hydro": "*",
-    "jsmd": "*"
+    "hydro": "*"
   },
-  "repository": "git://github.com/jkroso/transducers.js.git",
+  "transpile": [["{index,test/*}.js", "!sourcegraph/babel->js"]],
+  "repository": "jkroso/transducers.js",
   "author": "Jake Rosoman",
   "files": ["index.js"],
   "license": "MIT"
