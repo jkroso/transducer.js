@@ -1,6 +1,6 @@
 {
-  "name": "transducers",
-  "version": "0.1.0",
+  "name": "transducer",
+  "version": "0.0.0",
   "description": "functions of the highest order",
   "keywords": ["transduce"],
   "dependencies": {
@@ -15,7 +15,7 @@
     "hydro": "*"
   },
   "transpile": [["{index,test/*}.js", "!sourcegraph/babel->js"]],
-  "repository": "jkroso/transducers.js",
+  "repository": "jkroso/transducer.js",
   "author": "Jake Rosoman",
   "files": ["index.js"],
   "license": "MIT"
